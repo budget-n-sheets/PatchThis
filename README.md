@@ -1,6 +1,6 @@
 # Patch This
 
-[![License](https://img.shields.io/github/license/guimspace/patch-this)](https://github.com/guimspace/patch-this/blob/master/LICENSE) [![Version](https://img.shields.io/github/v/release/guimspace/patch-this?include_prereleases)](https://github.com/guimspace/patch-this/releases)
+[![License](https://img.shields.io/github/license/guimspace/patch-this)](https://github.com/guimspace/patch-this/blob/master/LICENSE) [![Version](https://img.shields.io/github/v/tag/guimspace/patch-this)](https://github.com/guimspace/patch-this/releases)
 
 
 ## Overview
