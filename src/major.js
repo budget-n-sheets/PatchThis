@@ -50,6 +50,8 @@ function update_major_(v1, list, minor, patch) {
 	if (r.r && r.p == -1) {
 		m--;
 		r.p = pp;
+	} else if (r.p == -1) {
+		r.p = 0;
 	}
 
 	p = r.p;

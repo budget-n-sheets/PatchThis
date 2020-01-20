@@ -77,6 +77,8 @@ function update() {
 			r.m = mm;
 		}
 		if (r.p == -1) r.p = pp;
+	} else if (r.m == -1) {
+		r.m = 0;
 	}
 
 	v0 = {
