@@ -18,6 +18,8 @@
  */
 
 function update_major_(v1, list, minor, patch) {
+	if (list == null || list.length == 0) return {r:1, m:-1, p:-1};
+
 	var m = minor;
 	var p = patch;
 	var ver, pp, r, t;

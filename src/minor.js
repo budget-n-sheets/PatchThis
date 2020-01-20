@@ -18,6 +18,8 @@
  */
 
 function update_minor_(v1, list, patch) {
+	if (list == null || list.length == 0) return {r:1, p:-1};
+
 	var p = patch;
 	var ver, r;
 
