@@ -24,12 +24,18 @@ function update() {
 	if (v0.major > v1.major) return;
 	if (v0.major == v1.major) {
 		if (v0.minor > v1.minor) return;
-		if (v0.minor == v1.minor && v0.patch >= v1.patch) return;
+		if (v0.minor == v1.minor) {
+			if (v0.patch > v1.patch) return;
+			if (v0.patch == v1.patch) {
+				if (BETA_LIST.length == 0 || v0.beta >= BETA_LIST.length) return;
+			}
+		}
 	}
 
-	var ver, major, minor, patch;
+	var ver, major, minor, patch, beta;
 	var mm, pp, r, t;
 
+	const beta = v0.beta;
 	const patch_list = PATCH_LIST;
 
 	major = v0.major;
@@ -39,7 +45,7 @@ function update() {
 	t = 0;
 	mm = minor;
 	pp = patch;
-	r = {r:0, m:minor, p:patch};
+	r = {r:0, m:minor, p:patch, b:beta};
 
 	do {
 		ver = (major == v1.major ? v1 : null);
@@ -47,7 +53,7 @@ function update() {
 			major -= 2;
 			t = 1;
 		} else if (patch_list[major]) {
-			r = update_major_(ver, patch_list[major], minor, patch);
+			r = update_major_(ver, patch_list[major], minor, patch, beta);
 		}
 
 		if (r.r || major == v1.major) {
@@ -74,7 +80,8 @@ function update() {
 	v0 = {
 		major: major,
 		minor: r.m,
-		patch: r.p
+		patch: r.p,
+		beta: r.b
 	};
 
 	VERSION_A = v0;

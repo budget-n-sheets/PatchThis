@@ -17,47 +17,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-function update_major_(v1, list, minor, patch, beta) {
-	if (list == null || list.length == 0) return {r:1, m:-1, p:-1};
+function update_beta_(beta) {
+	var list = BETA_LIST;
+	var b = beta;
 
-	var m = minor;
-	var p = patch;
-	var ver, pp, b, r, t;
-
-	t = 0;
-	pp = p;
-	r = {r:0, p:p};
-
-	do {
-		if (v1 && m == v1.minor) ver = v1;
-		else ver = null;
-
-		if (m >= list.length) {
-			m -= 2;
-			t = 1;
-		} else if (list[m]) {
-			r = update_minor_(ver, list[m], p, beta);
+	while (b < list.length) {
+		if (list[b]) {
+			list[b]();
 		}
-
-		if (r.r || (ver && m == ver.minor)) {
-			t = 1;
-		} else {
-			m++;
-			pp = r.p;
-			p = -1;
-		}
-	} while (!t);
-
-	if (r.r && r.p == -1) {
-		m--;
-		r.p = pp;
-	} else if (r.p == -1) {
-		r.p = 0;
+		b++;
 	}
 
-	p = r.p;
-	b = r.b;
-	r = r.r;
-
-	return {r:r, m:m, p:p, b:b};
+	return b;
 }
