@@ -29,7 +29,6 @@ function update_major_(v1, list, minor, patch) {
 	r = {r:0, p:p};
 
 	do {
-		TEXT_MINOR = "." + m;
 		if (v1 && m == v1.minor) ver = v1;
 		else ver = null;
 

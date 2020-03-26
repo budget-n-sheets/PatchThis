@@ -30,7 +30,6 @@ function update_minor_(v1, list, patch) {
 
 	do {
 		p++;
-		TEXT_PATCH = "." + p;
 		if (p >= list.length) {
 			p--;
 			break;

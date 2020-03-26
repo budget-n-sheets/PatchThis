@@ -21,29 +21,20 @@ function update() {
 	var v0 = VERSION_A;
 	const v1 = VERSION_Z;
 
-	if (v0.major > v1.major) {
-		console.log("v0.major > v1.major");
-		return;
-	}
+	if (v0.major > v1.major) return;
 	if (v0.major == v1.major) {
-		if (v0.minor > v1.minor) {
-			console.log("v0.minor > v1.minor");
-			return;
-		} else if (v0.minor == v1.minor && v0.patch >= v1.patch) {
-			console.log("v0.minor == v1.minor && v0.patch >= v1.patch");
-			return;
-		}
+		if (v0.minor > v1.minor) return;
+		if (v0.minor == v1.minor && v0.patch >= v1.patch) return;
 	}
-
-	console.log("update-start");
 
 	var ver, major, minor, patch;
 	var mm, pp, r, t;
 
+	const patch_list = PATCH_LIST;
+
 	major = v0.major;
 	minor = v0.minor;
 	patch = v0.patch;
-	list = LIST;
 
 	t = 0;
 	mm = minor;
@@ -51,13 +42,12 @@ function update() {
 	r = {r:0, m:minor, p:patch};
 
 	do {
-		TEXT_MAJOR = "v" + major;
 		ver = (major == v1.major ? v1 : null);
-		if (major >= list.length) {
+		if (major >= patch_list.length) {
 			major -= 2;
 			t = 1;
-		} else if (list[major]) {
-			r = update_major_(ver, list[major], minor, patch);
+		} else if (patch_list[major]) {
+			r = update_major_(ver, patch_list[major], minor, patch);
 		}
 
 		if (r.r || major == v1.major) {
@@ -87,6 +77,5 @@ function update() {
 		patch: r.p
 	};
 
-	console.log(v0);
-	console.log("update-end");
+	VERSION_A = v0;
 }
