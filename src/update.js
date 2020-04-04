@@ -32,7 +32,7 @@ function update() {
 		}
 	}
 
-	var ver, major, minor, patch, beta;
+	var ver, major, minor, patch;
 	var mm, pp, r, t;
 
 	const beta = v0.beta;
