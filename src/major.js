@@ -20,9 +20,9 @@
 function update_major_ (v1, list, minor, patch, beta) {
   if (list == null || list.length === 0) return { r: 1, m: -1, p: -1 };
 
-  var m = minor;
-  var p = patch;
-  var ver, pp, b, r, t;
+  let m = minor;
+  let p = patch;
+  let ver, pp, r, t;
 
   t = 0;
   pp = p;
@@ -55,8 +55,8 @@ function update_major_ (v1, list, minor, patch, beta) {
     r.p = 0;
   }
 
+  const b = r.b;
   p = r.p;
-  b = r.b;
   r = r.r;
 
   return { r: r, m: m, p: p, b: b };

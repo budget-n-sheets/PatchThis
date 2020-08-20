@@ -18,8 +18,8 @@
  */
 
 function update_beta_ (beta) {
-  var list = BETA_LIST;
-  var b = beta;
+  const list = BETA_LIST;
+  let b = beta;
 
   while (b < list.length) {
     if (list[b]) {

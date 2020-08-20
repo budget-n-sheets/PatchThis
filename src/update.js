@@ -18,7 +18,7 @@
  */
 
 function update () {
-  var v0 = VERSION_A;
+  const v0 = VERSION_A;
   const v1 = VERSION_Z;
 
   if (v0.major > v1.major) return;
@@ -32,8 +32,8 @@ function update () {
     }
   }
 
-  var ver, major, minor, patch;
-  var mm, pp, r, t;
+  let ver, major, minor, patch;
+  let mm, pp, r, t;
 
   const beta = v0.beta;
   const patch_list = PATCH_LIST;
@@ -77,12 +77,12 @@ function update () {
     r.m = 0;
   }
 
-  v0 = {
+  const new_v0 = {
     major: major,
     minor: r.m,
     patch: r.p,
     beta: r.b
   };
 
-  VERSION_A = v0;
+  VERSION_A = new_v0;
 }

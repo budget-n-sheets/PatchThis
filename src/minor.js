@@ -20,8 +20,8 @@
 function update_minor_ (v1, list, patch, beta) {
   if (list == null || list.length === 0) return { r: 1, p: -1, b: 0 };
 
-  var p = patch;
-  var ver, b, r;
+  let p = patch;
+  let ver, b, r;
 
   r = 0;
 
