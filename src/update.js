@@ -17,72 +17,72 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-function update() {
-	var v0 = VERSION_A;
-	const v1 = VERSION_Z;
+function update () {
+  var v0 = VERSION_A;
+  const v1 = VERSION_Z;
 
-	if (v0.major > v1.major) return;
-	if (v0.major == v1.major) {
-		if (v0.minor > v1.minor) return;
-		if (v0.minor == v1.minor) {
-			if (v0.patch > v1.patch) return;
-			if (v0.patch == v1.patch) {
-				if (BETA_LIST.length == 0 || v0.beta >= BETA_LIST.length) return;
-			}
-		}
-	}
+  if (v0.major > v1.major) return;
+  if (v0.major === v1.major) {
+    if (v0.minor > v1.minor) return;
+    if (v0.minor === v1.minor) {
+      if (v0.patch > v1.patch) return;
+      if (v0.patch === v1.patch) {
+        if (BETA_LIST.length === 0 || v0.beta >= BETA_LIST.length) return;
+      }
+    }
+  }
 
-	var ver, major, minor, patch;
-	var mm, pp, r, t;
+  var ver, major, minor, patch;
+  var mm, pp, r, t;
 
-	const beta = v0.beta;
-	const patch_list = PATCH_LIST;
+  const beta = v0.beta;
+  const patch_list = PATCH_LIST;
 
-	major = v0.major;
-	minor = v0.minor;
-	patch = v0.patch;
+  major = v0.major;
+  minor = v0.minor;
+  patch = v0.patch;
 
-	t = 0;
-	mm = minor;
-	pp = patch;
-	r = {r:0, m:minor, p:patch, b:beta};
+  t = 0;
+  mm = minor;
+  pp = patch;
+  r = { r: 0, m: minor, p: patch, b: beta };
 
-	do {
-		ver = (major == v1.major ? v1 : null);
-		if (major >= patch_list.length) {
-			major -= 2;
-			t = 1;
-		} else if (patch_list[major]) {
-			r = update_major_(ver, patch_list[major], minor, patch, beta);
-		}
+  do {
+    ver = (major === v1.major ? v1 : null);
+    if (major >= patch_list.length) {
+      major -= 2;
+      t = 1;
+    } else if (patch_list[major]) {
+      r = update_major_(ver, patch_list[major], minor, patch, beta);
+    }
 
-		if (r.r || major == v1.major) {
-			t = 1;
-		} else {
-			major++;
-			mm = r.m;
-			minor = 0;
-			pp = r.p;
-			patch = -1;
-		}
-	} while (!t);
+    if (r.r || major === v1.major) {
+      t = 1;
+    } else {
+      major++;
+      mm = r.m;
+      minor = 0;
+      pp = r.p;
+      patch = -1;
+    }
+  } while (!t);
 
-	if (r.r) {
-		if (r.m == -1) {
-			major--;
-			r.m = mm;
-		}
-		if (r.p == -1) r.p = pp;
-	} else if (r.m == -1) {
-		r.m = 0;
-	}
+  if (r.r) {
+    if (r.m === -1) {
+      major--;
+      r.m = mm;
+    }
+    if (r.p === -1) r.p = pp;
+  } else if (r.m === -1) {
+    r.m = 0;
+  }
 
-	v0 = {
-		major: major,
-		minor: r.m,
-		patch: r.p,
-		beta: r.b
-	};
+  v0 = {
+    major: major,
+    minor: r.m,
+    patch: r.p,
+    beta: r.b
+  };
 
-	VERSION_A = v0;
+  VERSION_A = v0;
 }
