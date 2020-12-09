@@ -5,7 +5,7 @@
 
 ## Overview
 
-**Patch This** is a basic patching system. It was supposed to be a pseudocode but it is written in JavaScript.
+**Patch This** is a basic patching system for Google Apps Scripts.
 
 ## Contribute code and ideas
 
