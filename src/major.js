@@ -22,15 +22,13 @@ function update_major_ (v1, list, minor, patch, beta) {
 
   let m = minor;
   let p = patch;
-  let ver, pp, r, t;
 
-  t = 0;
-  pp = p;
-  r = { r: 0, p: p };
+  let t = 0;
+  let pp = p;
+  let r = { r: 0, p: p };
 
   do {
-    if (v1 && m === v1.minor) ver = v1;
-    else ver = null;
+    let ver = (v1 && m === v1.minor) ? v1 : null;
 
     if (m >= list.length) {
       m -= 2;

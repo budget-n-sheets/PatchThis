@@ -32,23 +32,20 @@ function update () {
     }
   }
 
-  let ver, major, minor, patch;
-  let mm, pp, r, t;
-
   const beta = v0.beta;
   const patch_list = PATCH_LIST;
 
-  major = v0.major;
-  minor = v0.minor;
-  patch = v0.patch;
+  let major = v0.major;
+  let minor = v0.minor;
+  let patch = v0.patch;
 
-  t = 0;
-  mm = minor;
-  pp = patch;
-  r = { r: 0, m: minor, p: patch, b: beta };
+  let t = 0;
+  let mm = minor;
+  let pp = patch;
+  let r = { r: 0, m: minor, p: patch, b: beta };
 
   do {
-    ver = (major === v1.major ? v1 : null);
+    let ver = (major === v1.major ? v1 : null);
     if (major >= patch_list.length) {
       major -= 2;
       t = 1;
