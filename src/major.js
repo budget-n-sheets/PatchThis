@@ -41,6 +41,7 @@ function update_major_ (v1, list, minor, patch, beta) {
       t = 1;
     } else {
       m++;
+      if (r.p === -1) break;
       pp = r.p;
       p = -1;
     }
@@ -50,7 +51,7 @@ function update_major_ (v1, list, minor, patch, beta) {
     m--;
     r.p = pp;
   } else if (r.p === -1) {
-    r.p = 0;
+    r.p = pp;
   }
 
   const b = r.b;

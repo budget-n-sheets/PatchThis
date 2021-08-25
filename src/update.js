@@ -57,6 +57,7 @@ function update () {
       t = 1;
     } else {
       major++;
+      if (r.p === -1) break;
       mm = r.m;
       minor = 0;
       pp = r.p;
@@ -72,6 +73,9 @@ function update () {
     if (r.p === -1) r.p = pp;
   } else if (r.m === -1) {
     r.m = 0;
+  } else if (r.p === -1) {
+    r.m = mm;
+    r.p = pp;
   }
 
   const new_v0 = {
