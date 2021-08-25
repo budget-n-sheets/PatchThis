@@ -69,6 +69,9 @@ function update () {
     if (r.m === -1) {
       major--;
       r.m = mm;
+    } else if (r.m === 0 && r.p === -1) {
+      major--;
+      r.p = pp;
     }
     if (r.p === -1) r.p = pp;
   } else if (r.m === -1) {
