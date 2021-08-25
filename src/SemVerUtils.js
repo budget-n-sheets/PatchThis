@@ -49,3 +49,5 @@ class SemVerUtils {
     return true;
   }
 }
+
+module.exports = SemVerUtils;

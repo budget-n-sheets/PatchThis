@@ -186,3 +186,5 @@ class PatchThis {
     return this;
   }
 }
+
+module.exports = PatchThis;
