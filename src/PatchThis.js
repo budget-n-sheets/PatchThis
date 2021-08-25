@@ -173,7 +173,11 @@ class PatchThis {
       if (this._control.minor.pos === -1) {
         control.pos--;
         this._control.minor.pos = lastMinor;
+      } else if (this._control.minor.pos === 0 && this._control.patch.pos === -1) {
+        control.pos--;
+        this._control.patch.pos = lastPatch;
       }
+
       if (this._control.patch.pos === -1) this._control.patch.pos = lastPatch;
     } else if (this._control.minor.pos === -1) {
       this._control.minor.pos = 0;
