@@ -19,6 +19,10 @@
 
 class PatchThis {
   constructor () {
+    this._source = null;
+    this._reference = null;
+    this._patches = null;
+
     this._control = {
       major: { pos: 0 },
       minor: { pos: 0, list: [], ref: -1 },
