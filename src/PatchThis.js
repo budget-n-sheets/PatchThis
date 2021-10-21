@@ -34,8 +34,9 @@ class PatchThis {
     const control = this._control.beta;
 
     while (control.pos < control.list.length) {
-      if (control.list[control.pos] != null) {
-        control.list[control.pos]();
+      if (control.list[control.pos] !== '') {
+        const name = control.list[control.pos];
+        this[name]();
       }
 
       control.pos++;
@@ -56,8 +57,9 @@ class PatchThis {
       if (control.pos >= control.list.length) {
         control.pos--;
         break;
-      } else if (control.list[control.pos] != null) {
-        this.response = control.list[control.pos]();
+      } else if (control.list[control.pos] !== '') {
+        const name = control.list[control.pos];
+        this.response = this[name]();
       }
     } while (this.response === 0 && control.pos !== control.ref);
 
