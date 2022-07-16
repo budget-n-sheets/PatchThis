@@ -17,7 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-class SemVerUtils {
+class PatchThisUtils {
   static hasMinimumVersion (source, reference) {
     if (source.major > reference.major) return true;
     if (source.major === reference.major) {
@@ -50,4 +50,4 @@ class SemVerUtils {
   }
 }
 
-module.exports = SemVerUtils;
+module.exports = PatchThisUtils;
