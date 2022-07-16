@@ -119,21 +119,14 @@ class PatchThis {
     };
   }
 
-  makeConfig () {
-    if (this._reference == null) throw new Error('PatchThis: makeConfig(): Reference was not defined.');
-    if (this._patches == null) throw new Error('PatchThis: makeConfig(): Patches were not defined.');
-
-    this.response = 0;
-
-    return this;
-  }
-
   update () {
     const control = this._control.major;
 
     let lastMinor = this._control.minor.pos;
     let lastPatch = this._control.patch.pos;
     let t = true;
+
+    this.response = 0;
 
     do {
       this._control.minor.ref = (control.pos === this._reference.major ? this._reference.minor : -1);
@@ -174,8 +167,6 @@ class PatchThis {
       this._control.minor.pos = lastMinor;
       this._control.patch.pos = lastPatch;
     }
-
-    return this;
   }
 }
 
