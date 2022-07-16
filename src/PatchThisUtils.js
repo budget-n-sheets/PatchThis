@@ -32,22 +32,6 @@ class PatchThisUtils {
 
     return false;
   }
-
-  static hasSemVerFormat (v) {
-    if (!Object.prototype.hasOwnProperty.call(v, 'major')) return false;
-    if (typeof v.major !== 'number') return false;
-
-    if (!Object.prototype.hasOwnProperty.call(v, 'minor')) return false;
-    if (typeof v.minor !== 'number') return false;
-
-    if (!Object.prototype.hasOwnProperty.call(v, 'patch')) return false;
-    if (typeof v.patch !== 'number') return false;
-
-    if (!Object.prototype.hasOwnProperty.call(v, 'beta')) return false;
-    if (typeof v.beta !== 'number') return false;
-
-    return true;
-  }
 }
 
 module.exports = PatchThisUtils;
