@@ -18,19 +18,17 @@
  */
 
 class PatchThis {
-  constructor () {
-    this._source = null;
-    this._reference = null;
-    this._patches = null;
+  constructor (source, reference, patches) {
+    this._reference = Object.freeze(Object.assign({}, reference));
+    this._patches = Object.freeze(patches);
 
     this._control = {
-      major: { pos: 0 },
-      minor: { pos: 0, list: [], ref: -1 },
-      patch: { pos: 0, list: [], ref: -1 },
-      beta: { pos: 0, list: [] }
+      major: { pos: source.major },
+      minor: { pos: source.minor, list: [], ref: -1 },
+      patch: { pos: source.patch, list: [], ref: -1 },
+      beta: { pos: source.beta, list: [] }
     };
 
-    this.names = ['major', 'minor', 'patch', 'beta'];
     this.response = 1;
   }
 
@@ -112,11 +110,6 @@ class PatchThis {
     }
   }
 
-  fromVer (v) {
-    this._source = v;
-    return this;
-  }
-
   getPosition () {
     return {
       major: this._control.major.pos,
@@ -127,21 +120,11 @@ class PatchThis {
   }
 
   makeConfig () {
-    if (this._source == null) throw new Error('PatchThis: makeConfig(): Source was not defined.');
     if (this._reference == null) throw new Error('PatchThis: makeConfig(): Reference was not defined.');
     if (this._patches == null) throw new Error('PatchThis: makeConfig(): Patches were not defined.');
 
-    for (const name of this.names) {
-      this._control[name].pos = this._source[name];
-    }
-
     this.response = 0;
 
-    return this;
-  }
-
-  setPatches (list) {
-    this._patches = list;
     return this;
   }
 
@@ -192,11 +175,6 @@ class PatchThis {
       this._control.patch.pos = lastPatch;
     }
 
-    return this;
-  }
-
-  toVer (v) {
-    this._reference = Object.freeze(Object.assign({}, v));
     return this;
   }
 }
