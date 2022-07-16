@@ -18,7 +18,7 @@
  */
 
 class PatchThisUtils {
-  static hasMinimumVersion (source, reference) {
+  static isLatestVersion (source, reference) {
     if (source.major > reference.major) return true;
     if (source.major === reference.major) {
       if (source.minor > reference.minor) return true;
