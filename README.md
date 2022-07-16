@@ -1,11 +1,7 @@
-# Patch This
+# PatchThis
 
-[![License](https://img.shields.io/github/license/guimspace/patch-this)](https://github.com/guimspace/patch-this/blob/master/LICENSE) [![Version](https://img.shields.io/github/v/tag/guimspace/patch-this?include_prereleases)](https://github.com/guimspace/patch-this/releases)
+[![License](https://img.shields.io/github/license/guimspace/PatchThis)](https://github.com/guimspace/PatchThis/blob/master/LICENSE) [![Version](https://img.shields.io/github/v/tag/guimspace/PatchThis?include_prereleases)](https://github.com/guimspace/PatchThis/releases)
 
-
-## Overview
-
-**Patch This** is a basic patching system for Google Apps Scripts.
 
 ## Contribute code and ideas
 
@@ -22,5 +18,5 @@ For larger changes and feature ideas, please open an issue first for a discussio
 
 ## License
 
-Copyright (C) 2020 Guilherme T Maeoka  
+Copyright (C) 2020-2022 Guilherme T Maeoka
 License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/>.

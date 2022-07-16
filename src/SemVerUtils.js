@@ -1,7 +1,7 @@
 /**
  * Patch This: A basic patching system
- * Copyright (C) 2021 Guilherme Tadashi Maeoka
- * <https://github.com/guimspace/patch-this>
+ * Copyright (C) 2020-2022 Guilherme Tadashi Maeoka
+ * <https://github.com/guimspace/PatchThis>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
